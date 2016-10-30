@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "get-fb-ids": "get-fb-ids",
     "start": "node index.js"
   },
   "author": "Jason Yu <me@ycmjason.com> (ycmjason.com)",
@@ -12,5 +13,8 @@
     "express": "^4.14.0",
     "express-log-url": "^1.0.4",
     "mongoose": "^4.6.5"
+  },
+  "devDependencies": {
+    "get-facebook-id": "^1.0.2"
   }
 }

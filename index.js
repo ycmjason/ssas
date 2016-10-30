@@ -1,8 +1,13 @@
 var express = require('express');
-var app = express();
+var mongoose = require('mongoose');
+
 var config = require('./lib/config');
 
+var app = express();
 var PORT = process.env.PORT || 8080;
+
+/* connect to mongodb */
+mongoose.connect(config.db_uri);
 
 /* logger */
 app.use(require('express-log-url'));
