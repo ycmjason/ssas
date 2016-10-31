@@ -17,7 +17,7 @@ export class FacebookService {
   private _fbAsyncInit() {
     FB.init({
       appId      : fb_app_id,
-      version    : 'v2.7'
+      version    : 'v2.8'
     });
   }
 
