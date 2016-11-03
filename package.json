@@ -7,7 +7,8 @@
     "build:valid-ids": "cat lib/config/valid_users/usernames.txt | xargs get-fb-ids | xargs -n1 -I% echo '\"%\"' | xargs node bin/toArray.js > lib/config/valid_users/ids.json",
     "build": "npm run build:valid-ids",
     "start": "node index.js",
-    "heroku": "heroku local"
+    "heroku": "heroku local",
+    "test": "mocha"
   },
   "author": "Jason Yu <me@ycmjason.com> (ycmjason.com)",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "mongoose": "^4.6.5"
   },
   "devDependencies": {
-    "get-facebook-id": "^1.0.2"
+    "get-facebook-id": "^1.0.2",
+    "mocha": "^3.1.2"
   }
 }
