@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:valid-ids": "cat lib/config/valid_users/usernames.txt | xargs get-fb-ids | xargs -n1 -I% echo '\"%\"' | xargs node bin/toArray.js > lib/config/valid_users/ids.json",
     "build": "npm run build:valid-ids",
     "start": "node index.js",
     "heroku": "heroku local",
-    "test": "mocha"
+    "test": "mocha",
+    "get-fb-ids": "get-fb-ids"
   },
   "author": "Jason Yu <me@ycmjason.com> (ycmjason.com)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "express-log-url": "^1.0.4",
     "fb": "^1.1.1",
