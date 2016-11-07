@@ -2,6 +2,7 @@ require('dotenv').config()
 
 var express = require('express');
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 var config = require('./lib/config');
 
@@ -19,9 +20,6 @@ app.use(require('express-log-url'));
  
 /* routers */
 app.use(require('./lib/routers'));
-
-/* static files */
-app.use(express.static('public'));
  
 /* start apps and listen to PORT */
 app.listen(PORT, function() {

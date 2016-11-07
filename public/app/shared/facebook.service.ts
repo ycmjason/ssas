@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { valid_users } from './valid_users';
-
-console.log(valid_users);
-
 declare var FB:any;
 
 const fb_app_id = '576619982522568';
@@ -40,7 +36,6 @@ export class FacebookService {
         FB.getLoginStatus((res) => {
           resolve(FB);
           this.FBReady = true;
-          console.log('resolved');
         });
       };
       this._insertFBSDK();
@@ -51,31 +46,26 @@ export class FacebookService {
     this.FBPromise.then(fn);
   }
 
-  private _getUserPromise;
-  public getUser(force=false, fields='email, name, link') {
-    if(!force) {
-      if(this._getUserPromise) return this._getUserPromise;
-    }
-
-    this._getUserPromise = new Promise((resolve, reject) => {
+  public getUser(fields='id') {
+    return new Promise((resolve, reject) => {
       this.onFBReady((FB) => {
         FB.api('/me', {fields: fields}, (res) => {
-          if (!res || res.error) return reject();
-
+          console.log(res);
+          if (!res || res.error) {
+            console.error(res.error);
+            res = null
+          }
           resolve(res);
         });
       });
     });
-
-    return this._getUserPromise;
   }
 
-  public login(scope = 'public_profile, email'){
+  public login(scope = 'public_profile'){
     return new Promise((resolve, reject) => {
       this.onFBReady((FB) => {
         FB.login((res) => {
           if (res.authResponse) {
-            this.getUser(/* force */ true);
             resolve(res);
           }
           else reject(new Error('User cancelled'));
@@ -86,12 +76,7 @@ export class FacebookService {
 
   public logout() {
     return new Promise((resolve, reject) => {
-      this.onFBReady((FB) => {
-        FB.logout((res) => {
-          this.getUser(/* force */ true);
-          resolve(res);
-        });
-      });
+      this.onFBReady((FB) => FB.logout(resolve));
     });
   }
 

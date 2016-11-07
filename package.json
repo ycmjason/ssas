@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:valid-ids",
+    "build:allocations_db": "node bin/allocate_users.js",
+    "build:frontend": "cd public && npm run build",
+    "prestart": "npm run build:frontend",
     "start": "node index.js",
     "heroku": "heroku local",
     "test": "mocha",

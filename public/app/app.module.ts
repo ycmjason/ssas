@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
 
@@ -11,9 +12,12 @@ import { HomeComponent } from './components/home.component';
 import { ifFBReadyDirective } from './directives/ifFBReady.directive';
 
 import { FacebookService } from './shared/facebook.service';
+import { UserService } from './shared/user.service';
+import { ApiService } from './shared/api.service';
 
 @NgModule({
   imports: [
+    HttpModule,
     BrowserModule,
     FormsModule,
     routing
@@ -25,7 +29,11 @@ import { FacebookService } from './shared/facebook.service';
 
     ifFBReadyDirective
   ],
-  providers: [FacebookService],
+  providers: [
+    FacebookService,
+    UserService,
+    ApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { FacebookService } from '../shared/facebook.service';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector:  'app-root',
@@ -11,21 +11,25 @@ import { FacebookService } from '../shared/facebook.service';
 export class LoginComponent implements OnInit {
   constructor(
       private router: Router,
-      private fbService: FacebookService) { }
+      private userService: UserService) { }
 
   ngOnInit() {
-    this.fbService.getUser()
-      .then((u) => { // logged in
-        console.log(u);
-        this.router.navigate(['/home']);    
-      }).catch(()=>undefined); // not logged in
+    this.userService.getUser()
+      .then((u) => {
+        if(u) {
+          // logged in
+          console.log(u);
+          this.router.navigate(['/home']);    
+        }else {
+          // not logged in
+        }
+      });
   }
 
   public login(){
-    this.fbService.login().then((res) => {
+    this.userService.login().then((user) => {
+      console.log(user);
       this.router.navigate(['/home']);    
     });
   }
-
-  public FBReady = this.fbService.FBReady;
 }
