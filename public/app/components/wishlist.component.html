@@ -1,0 +1,13 @@
+<md-card>
+  <md-card-title>Your wishes</md-card-title>   
+  <md-card-subtitle>
+    These wishes are sent to your santa!
+  </md-card-subtitle>
+  <md-card-content>
+    <ul>
+      <li *ngFor="let w of wishlist">
+        {{w}}
+      </li>
+    </ul>
+  </md-card-content>
+</md-card>

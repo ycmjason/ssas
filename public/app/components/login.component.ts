@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 
 @Component({
-  selector:  'app-root',
-  templateUrl:  './app/components/login.component.html'
+  templateUrl:  'app/components/login.component.html'
 })
 export class LoginComponent implements OnInit {
   constructor(
@@ -18,18 +17,19 @@ export class LoginComponent implements OnInit {
       .then((u) => {
         if(u) {
           // logged in
-          console.log(u);
-          this.router.navigate(['/home']);    
+          this._loginSuccessful(u);
         }else {
           // not logged in
         }
       });
   }
 
+  private _loginSuccessful(user) {
+    console.log(user); 
+    this.router.navigate(['/home']);
+  }
+
   public login(){
-    this.userService.login().then((user) => {
-      console.log(user);
-      this.router.navigate(['/home']);    
-    });
+    this.userService.login().then(this._loginSuccessful.bind(this));
   }
 }
