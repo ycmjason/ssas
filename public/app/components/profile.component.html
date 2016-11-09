@@ -1,0 +1,10 @@
+<md-card>
+  <md-card-subtitle *ngIf="subtitle">{{subtitle}}</md-card-subtitle>   
+  <md-card-title>{{user.name}}</md-card-title>   
+  <md-card-content>
+    <img src="{{user.picture}}">
+  </md-card-content>
+  <md-card-actions>
+    <a md-button target="_blank" href="{{user.link}}">FACEBOOK</a>
+  </md-card-actions>
+</md-card>

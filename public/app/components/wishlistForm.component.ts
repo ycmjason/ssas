@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserService } from '../shared/user.service';
+import { WishlistService } from '../shared/wishlist.service';
 
 @Component({
   selector: 'ssas-wishlist-form',
@@ -12,7 +12,9 @@ import { UserService } from '../shared/user.service';
   }`],
 })
 export class WishlistFormComponent {
-  public wishlist = [];
+  @Output() wishesMade = new EventEmitter();
+  public wishes = [];
+  public message;
 
   private _eg_items = [
     'something red!',
@@ -24,6 +26,17 @@ export class WishlistFormComponent {
 
   public examples = 'Examples: ' + this._eg_items.map(i => `<i>${i}</i>`).join(', ');
 
+  private _badSubmission(){
+    this.message = "Please make sure you fill all three wishes.";
+  }
+
   constructor(private router: Router,
-              private userService: UserService) { }
+              private wishlistService: WishlistService) { }
+
+  public submit() {
+    let wishes = this.wishes.map(w => w.trim());
+    if(wishes.filter(w => !!w).length !== 3) return this._badSubmission();
+    
+    this.wishlistService.createWishlist(wishes).then((wishes) => this.wishesMade.emit(wishes));
+  }
 }

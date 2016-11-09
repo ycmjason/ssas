@@ -1,6 +1,6 @@
-<form>
+<form (ngSubmit)="submit()">
   <md-card>
-    <md-card-title>Make your wishes</md-card-title>   
+    <md-card-title>Make your wishes!</md-card-title>   
     <md-card-subtitle>
       You can give some hint to your secret santa about what you like!
       <p [innerHTML]="examples"></p>
@@ -10,11 +10,12 @@
         placeholder="wish {{i+1}}"
         name="wish{{i}}"
         *ngFor="let i of [0,1,2]"
-        [(ngModel)]="wishlist[i]">
+        [(ngModel)]="wishes[i]">
       </md-input>
     </md-card-content>
     <md-card-actions>
-      <button md-button>SUBMIT</button>
+      <button md-button type="submit">SUBMIT</button>
+      {{message}}
     </md-card-actions>
   </md-card>
 </form>

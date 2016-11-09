@@ -1,3 +1,53 @@
-<ssas-wishlist-form></ssas-wishlist-form>
-<ssas-wishlist></ssas-wishlist>
-<button md-button (click)="logout()" ifFBReady>Logout</button>
+<div *ngIf="user">
+
+  <div *ngIf="!wishes">
+    <section>
+      <ssas-wishlist-form (wishesMade)="wishes=$event"></ssas-wishlist-form>
+    </section>
+
+    <section>
+      <md-card class="center">
+        You must make your wishes to proceed.
+      </md-card>
+    </section>
+  </div>
+
+  <div *ngIf="wishes">
+    <section>
+      <md-card>
+        <md-card-title>Secret Santa Allocation System</md-card-title>
+        <md-card-subtitle>Welcome {{user.name}},</md-card-subtitle>
+        <img md-card-image src="app/assets/christmas.png">
+        <md-card-actions>
+          <button md-button (click)="logout()" ifFBReady>Logout</button>
+        </md-card-actions>
+      </md-card>
+    </section>
+
+    <section>
+      <ssas-wishlist [user]="user"
+        [title]="'Your wishes'"
+        [subtitle]="'These wishes are sent to your santa!'"></ssas-wishlist>
+    </section>
+
+    <div *ngIf="master">
+      <section>
+        <ssas-profile [subtitle]="'You are the secret santa of:'" [user]="master"></ssas-profile>
+      </section>
+
+      <section>
+        <ssas-wishlist [user]="master"
+          [subtitle]="'It\'s optional to buy gift of his/her preference. Up to you at the end! :)'"></ssas-wishlist>
+      </section>
+    </div>
+
+    <div *ngIf="!master">
+      <section>
+        <md-card class="center">
+          You will be able to view your master later. Keep an eye on the facebook group/event page! :)
+        </md-card>
+      </section>
+    </div>
+
+  </div>
+</div>

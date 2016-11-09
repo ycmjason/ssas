@@ -43,4 +43,12 @@ export class UserService {
     return this._userPromise;
   }
 
+  public getAllocation() {
+    return new Promise((resolve, reject) => {
+      this.getUser().then((u: any) => {
+        if(!u) return reject();
+        this.api.get(`users/${u._id}/allocation`).then(resolve);
+      });
+    });
+  }
 }

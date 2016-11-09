@@ -1,19 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserService } from '../shared/user.service';
+import { WishlistService } from '../shared/wishlist.service';
 
 @Component({
   selector: 'ssas-wishlist',
   templateUrl:  'app/components/wishlist.component.html',
+  styles: [`ol{
+    margin: 0;
+    }`],
 })
-export class WishlistComponent {
-  public wishlist = [
-    'something red!',
-    'scented candles',
-    'shocks',
-  ].map(i=> 'I wish to have ' + i);
+export class WishlistComponent implements OnInit {
+  @Input() user;
+  @Input() title;
+  @Input() subtitle;
+  public wishes;
 
   constructor(private router: Router,
-              private userService: UserService) { }
+              private wishlistService: WishlistService) { }
+
+  ngOnInit() {
+    this.title = this.title || `${this.user.name}'s wishes`;              
+    this.wishlistService.getWishlist(this.user._id).then(wishes => {
+      this.wishes = wishes;
+    });
+  }
 }

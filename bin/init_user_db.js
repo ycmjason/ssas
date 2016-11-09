@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+console.log('You should not be calling this coz the production is published');
+/*
 var fs = require('fs');
 
 require('dotenv').config()
@@ -9,7 +11,7 @@ var config = require('../lib/config');
 
 var User = require('../lib/models/user.model');
 
-/* connect to mongodb */
+/* connect to mongodb
 mongoose.connect(config.db_uri);
 
 function createUser(u, cb) {
@@ -21,7 +23,7 @@ function createUser(u, cb) {
 }
 
 function createUserFromUsername(username, cb) {
-  fb.getUser(username, (u) => createUser(u, cb))
+  fb.getUserByUsername(username, (u) => createUser(u, cb))
 }
 
 var usernames_file = './lib/config/valid_users/usernames.txt';
@@ -43,3 +45,4 @@ User.remove({}, (err) => {
     }
   }));
 });
+*/

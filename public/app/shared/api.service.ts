@@ -29,7 +29,7 @@ export class ApiService {
   
   public post(endpoint, query?, body?) {
     return new Promise((resolve, reject) => {
-      this.http.post(this.api_base + endpoint + this.parseQuery(query), {body: body})
+      this.http.post(this.api_base + endpoint + this.parseQuery(query), body || {})
         .map(res => res.json())
         .subscribe(res => resolve(res));
     });

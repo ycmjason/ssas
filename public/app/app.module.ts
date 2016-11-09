@@ -9,14 +9,16 @@ import { routing } from './app.routing';
 import { AppComponent } from './components/app.component';
 import { LoginComponent } from './components/login.component';
 import { HomeComponent } from './components/home.component';
+import { ProfileComponent } from './components/profile.component';
 import { WishlistComponent } from './components/wishlist.component';
 import { WishlistFormComponent } from './components/wishlistForm.component';
 
 import { ifFBReadyDirective } from './directives/ifFBReady.directive';
 
 import { FacebookService } from './shared/facebook.service';
-import { UserService } from './shared/user.service';
 import { ApiService } from './shared/api.service';
+import { WishlistService } from './shared/wishlist.service';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import { ApiService } from './shared/api.service';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    ProfileComponent,
     WishlistComponent,
     WishlistFormComponent,
 
@@ -37,8 +40,9 @@ import { ApiService } from './shared/api.service';
   ],
   providers: [
     FacebookService,
-    UserService,
     ApiService,
+    UserService,
+    WishlistService,
   ],
   bootstrap: [AppComponent]
 })
