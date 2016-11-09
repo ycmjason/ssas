@@ -3,6 +3,5 @@
 *.sw*
 .DS_Store
 .env
-dist
 node_modules
 npm-debug.log
