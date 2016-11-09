@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:allocations_db": "node bin/allocate_users.js",
-    "build:frontend": "cd public && npm run build",
-    "postinstall": "npm run build:frontend",
+    "postinstall": "cd public && npm install",
     "start": "node index.js",
     "heroku": "heroku local",
     "test": "mocha",
