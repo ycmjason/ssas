@@ -7,7 +7,7 @@ import { WishlistService } from '../shared/wishlist.service';
   templateUrl:  'app/components/profile.component.html',
   styles: [`img{
         border-radius: 100px 0;
-    }`];
+    }`],
 })
 export class ProfileComponent {
   @Input() user;

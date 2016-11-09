@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install",
+    "prebuild": "npm install",
+    "build": "webpack",
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "tsc": "tsc",
@@ -32,7 +33,9 @@
     "@types/node": "^6.0.45",
     "concurrently": "^3.0.0",
     "lite-server": "^2.2.2",
-    "typescript": "^2.0.3"
+    "ts-loader": "^1.1.0",
+    "typescript": "^2.0.3",
+    "webpack": "^1.13.3"
   },
   "author": "Jason Yu <me@ycmjason.com> (ycmjason.com)",
   "license": "ISC"
