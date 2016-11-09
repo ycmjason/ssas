@@ -7,7 +7,12 @@
 
     <section>
       <md-card class="center">
-        You must make your wishes to proceed.
+        <md-card-content>
+          You must make your wishes to proceed.
+        </md-card-content>
+        <md-card-actions>
+          <button md-button (click)="logout()" ifFBReady>Logout</button>
+        </md-card-actions>
       </md-card>
     </section>
   </div>
