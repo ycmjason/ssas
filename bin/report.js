@@ -11,7 +11,7 @@ var Wishlist = require('../lib/models/wishlist.model');
 mongoose.connect(config.db_uri);
 
 function reportUser(user){
-  return `${user.name} (${user._id})`;
+  return `${user.name}`;
 }
 
 function report(users, wishlists){
