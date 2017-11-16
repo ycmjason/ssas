@@ -17,12 +17,12 @@ export class WishlistFormComponent {
   public message;
 
   private _eg_items = [
-    'something red!',
-    'no books at all please!',
-    'alcohol related stuff!',
+    'red stuff',
+    'alcohol',
     'scented candles',
     'shocks',
-  ].map(i=> "I don't wish to have " + i);
+    'books',
+  ];
 
   public examples = 'Examples: ' + this._eg_items.map(i => `<i>${i}</i>`).join(', ');
 

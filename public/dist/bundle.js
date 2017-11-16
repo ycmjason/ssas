@@ -57547,12 +57547,12 @@
 	        this.wishesMade = new core_1.EventEmitter();
 	        this.wishes = [];
 	        this._eg_items = [
-	            'something red!',
-	            'no books at all please!',
-	            'alcohol related stuff!',
+	            'red stuff',
+	            'alcohol',
 	            'scented candles',
 	            'shocks',
-	        ].map(function (i) { return "I don't wish to have " + i; });
+	            'books',
+	        ];
 	        this.examples = 'Examples: ' + this._eg_items.map(function (i) { return ("<i>" + i + "</i>"); }).join(', ');
 	    }
 	    WishlistFormComponent.prototype._badSubmission = function () {
