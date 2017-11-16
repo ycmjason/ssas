@@ -20,7 +20,7 @@ export class WishlistFormComponent {
     'red stuff',
     'alcohol',
     'scented candles',
-    'shocks',
+    'socks',
     'books',
   ];
 
