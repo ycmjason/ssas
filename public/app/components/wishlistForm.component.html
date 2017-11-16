@@ -1,13 +1,12 @@
 <form (ngSubmit)="submit()">
   <md-card>
-    <md-card-title>Make your wishes!</md-card-title>   
+    <md-card-title>Tell your secret santa what you dislike.</md-card-title>   
     <md-card-subtitle>
-      You can give some hint to your secret santa about what you like!
+      To avoid getting something you dislike, put in 3 things that you don't wish to receive.
       <p [innerHTML]="examples"></p>
     </md-card-subtitle>
     <md-card-content>
       <md-input type="text"
-        placeholder="wish {{i+1}}"
         name="wish{{i}}"
         *ngFor="let i of [0,1,2]"
         [(ngModel)]="wishes[i]">

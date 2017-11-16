@@ -22,12 +22,12 @@ export class WishlistFormComponent {
     'alcohol related stuff!',
     'scented candles',
     'shocks',
-  ].map(i=> 'I wish to have ' + i);
+  ].map(i=> "I don't wish to have " + i);
 
   public examples = 'Examples: ' + this._eg_items.map(i => `<i>${i}</i>`).join(', ');
 
   private _badSubmission(){
-    this.message = "Please make sure you fill all three wishes.";
+    this.message = "Please make sure you fill all three things that you don't want.";
   }
 
   constructor(private router: Router,

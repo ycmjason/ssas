@@ -6,6 +6,7 @@
   "scripts": {
     "build:allocations_db": "node bin/allocate_users.js",
     "report": "node bin/report.js",
+    "cleardb": "node bin/clear_db.js",
     "postinstall": "cd public && npm install",
     "start": "node index.js",
     "heroku": "heroku local",

@@ -20,7 +20,7 @@ export class WishlistComponent implements OnInit {
               private wishlistService: WishlistService) { }
 
   ngOnInit() {
-    this.title = this.title || `${this.user.name}'s wishes`;              
+    this.title = this.title || `What ${this.user.name} doesn't want`;
     this.wishlistService.getWishlist(this.user._id).then(wishes => {
       this.wishes = wishes;
     });
