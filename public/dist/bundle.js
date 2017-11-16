@@ -57550,7 +57550,7 @@
 	            'red stuff',
 	            'alcohol',
 	            'scented candles',
-	            'shocks',
+	            'socks',
 	            'books',
 	        ];
 	        this.examples = 'Examples: ' + this._eg_items.map(function (i) { return ("<i>" + i + "</i>"); }).join(', ');
