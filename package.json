@@ -7,6 +7,7 @@
     "postinstall": "cd public && npm i",
     "build:allocations_db": "node bin/allocate_users.js",
     "report": "node bin/report.js",
+    "clear_user_wishes": "node bin/clear_user_wishes.js",
     "cleardb": "node bin/clear_db.js",
     "start": "node index.js",
     "heroku": "heroku local",

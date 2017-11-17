@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var fb = require('../lib/adapters/fb');
 var config = require('../lib/config');
 
-var User = require('../lib/models/user.model');
+var Wishlist = require('../lib/models/wishlist.model');
 var Allocation = require('../lib/models/allocation.model');
 
 var allocate = require('../lib/utils/allocate');
@@ -26,7 +26,7 @@ function createAllocationFromAllocationname(username, cb) {
 }
 
 console.log('> Fetching users from database...');
-User.find({}, (err, users) => {
+Wishlist.find({}, (err, users) => {
   if(err) return console.erorr(err);
   allocateUsers(users);
 });
